@@ -7,10 +7,13 @@ const referralRoutes = require("./routes/referralRoutes");
 const applicationRoutes = require("./routes/applicationRoutes");
 const referralPostRoutes = require("./routes/referralPostRoutes");
 const notificationRoutes = require("./routes/notificationRoutes");
+const rateLimit = require("./middleware/rateLimitMiddleware");
 const app = express();
 
 app.use(cors());
 app.use(express.json());
+
+app.use(rateLimit);
 
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
