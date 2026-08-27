@@ -1,5 +1,8 @@
 const ReferralPost = require("../models/ReferralPost");
 const { redisClient } = require("../config/redis");
+const {
+  publishReferralCreated,
+} = require("../utils/rabbitmqProducer");
 
 const REFERRAL_POSTS_CACHE_KEY = "referral_posts";
 
@@ -9,7 +12,7 @@ const createReferralPost = async (req, res) => {
       ...req.body,
       postedBy: req.user.id,
     });
-
+    await publishReferralCreated(post);
     // Clear cached referral posts
     await redisClient.del(REFERRAL_POSTS_CACHE_KEY);
 

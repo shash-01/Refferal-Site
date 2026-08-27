@@ -5,49 +5,46 @@ const registerUser = async (req, res) => {
   try {
     const { name, username, email, password } = req.body;
 
+    // Check if email already exists
     const existingUser = await User.findOne({ email });
 
     if (existingUser) {
       return res.status(400).json({
-        message: "User already exists"
+        success: false,
+        message: "User with this email already exists",
       });
     }
 
+    // Check if username already exists
+    const existingUsername = await User.findOne({ username });
+
+    if (existingUsername) {
+      return res.status(400).json({
+        success: false,
+        message: "Username already exists",
+      });
+    }
+
+    // Hash password
     const hashedPassword = await bcrypt.hash(password, 10);
 
+    // Create user
     const user = await User.create({
       name,
+      username,
       email,
-      password: hashedPassword
+      password: hashedPassword,
     });
 
     res.status(201).json({
       success: true,
       message: "User registered successfully",
-      user
+      user,
     });
-
-    const existingUsername = await User.findOne({
-  username,
-});
-
-if (existingUsername) {
-  return res.status(400).json({
-    message: "Username already exists",
-  });
-}
-
-// const user = await User.create({
-//   name,
-//   username,
-//   email,
-//   password: hashedPassword,
-// });
-
   } catch (error) {
     res.status(500).json({
       success: false,
-      message: error.message
+      message: error.message,
     });
   }
 };
