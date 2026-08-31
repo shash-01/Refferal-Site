@@ -1,17 +1,44 @@
 const Referral = require("../models/Referral");
 const Notification = require("../models/Notification");
+const User = require("../models/User");
 
 const createReferral = async (req, res) => {
   try {
     const { referrer, company, jobRole, jobLink } = req.body;
 
+    // Check required fields
+    if (!referrer || !company || !jobRole || !jobLink) {
+      return res.status(400).json({
+        success: false,
+        message: "Referrer, company, job role, and job link are required",
+      });
+    }
+
+    // Prevent self-referral
+    if (referrer === req.user.id) {
+      return res.status(400).json({
+        success: false,
+        message: "You cannot request a referral from yourself",
+      });
+    }
+
+    // Check whether referrer exists
+    const referrerUser = await User.findById(referrer);
+
+    if (!referrerUser) {
+      return res.status(404).json({
+        success: false,
+        message: "Referrer not found",
+      });
+    }
+
     const referral = await Referral.create({
-  requester: req.user.id,
-  referrer,
-  company,
-  jobRole,
-  jobLink,
-});
+      requester: req.user.id,
+      referrer,
+      company,
+      jobRole,
+      jobLink,
+    });
 
     res.status(201).json({
       success: true,
@@ -24,7 +51,6 @@ const createReferral = async (req, res) => {
     });
   }
 };
-
 
 const getMyReferrals = async (req, res) => {
   try {
