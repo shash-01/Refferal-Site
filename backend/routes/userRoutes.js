@@ -11,11 +11,17 @@ const {
   uploadResume,
   getPublicProfile,
   searchUsers,
-  uploadProfilePicture 
+  getSkillMatches,
+  uploadProfilePicture
 } = require("../controllers/userController");
 
-const authMiddleware = require("../middleware/authMiddleware");
 
+const authMiddleware = require("../middleware/authMiddleware");
+router.get(
+  "/matches",
+  authMiddleware,
+  getSkillMatches
+);
 router.get("/profile", authMiddleware, getProfile);
 
 router.put("/profile", authMiddleware, updateProfile);

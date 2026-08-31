@@ -30,41 +30,81 @@ const createReferralPost = async (req, res) => {
 
 const getReferralPosts = async (req, res) => {
   try {
+    const {
+      company,
+      jobRole,
+      page = 1,
+      limit = 10,
+    } = req.query;
+
+    const pageNumber = Math.max(parseInt(page), 1);
+    const limitNumber = Math.min(Math.max(parseInt(limit), 1), 50);
+    const skip = (pageNumber - 1) * limitNumber;
+
+    const filter = {};
+
+    if (company) {
+      filter.company = {
+        $regex: company,
+        $options: "i",
+      };
+    }
+
+    if (jobRole) {
+      filter.jobRole = {
+        $regex: jobRole,
+        $options: "i",
+      };
+    }
+
+    const cacheKey = `referral_posts:${company || "all"}:${jobRole || "all"}:${pageNumber}:${limitNumber}`;
+
     // Check Redis first
-    const cachedPosts = await redisClient.get(
-      REFERRAL_POSTS_CACHE_KEY
-    );
+    const cachedPosts = await redisClient.get(cacheKey);
 
     if (cachedPosts) {
       console.log("Referral posts served from Redis");
 
-      const posts = JSON.parse(cachedPosts);
+      const cachedData = JSON.parse(cachedPosts);
 
       return res.status(200).json({
         success: true,
-        count: posts.length,
-        posts,
+        ...cachedData,
         source: "redis",
       });
     }
 
-    // Cache miss → MongoDB
     console.log("Referral posts served from MongoDB");
 
-    const posts = await ReferralPost.find()
-      .populate("postedBy", "name company");
+    const [posts, total] = await Promise.all([
+      ReferralPost.find(filter)
+        .populate("postedBy", "name company")
+        .sort({ createdAt: -1 })
+        .skip(skip)
+        .limit(limitNumber),
+
+      ReferralPost.countDocuments(filter),
+    ]);
+
+    const responseData = {
+      count: posts.length,
+      total,
+      page: pageNumber,
+      limit: limitNumber,
+      totalPages: Math.ceil(total / limitNumber),
+      posts,
+    };
 
     // Cache for 60 seconds
     await redisClient.setEx(
-      REFERRAL_POSTS_CACHE_KEY,
+      cacheKey,
       60,
-      JSON.stringify(posts)
+      JSON.stringify(responseData)
     );
 
     res.status(200).json({
       success: true,
-      count: posts.length,
-      posts,
+      ...responseData,
       source: "mongodb",
     });
   } catch (error) {

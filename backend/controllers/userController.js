@@ -21,15 +21,15 @@ const getProfile = async (req, res) => {
 // Update Profile
 const updateProfile = async (req, res) => {
   try {
-    const { name, company, role, skills, bio, linkedinUrl, githubUrl,} = req.body;
-
-
-    user.company = company || user.company;
-    user.role = role || user.role;
-    user.skills = skills || user.skills;
-    user.bio = bio || user.bio;
-    user.linkedinUrl = linkedinUrl || user.linkedinUrl;
-    user.githubUrl = githubUrl || user.githubUrl;
+    const {
+      name,
+      company,
+      role,
+      skills,
+      bio,
+      linkedinUrl,
+      githubUrl,
+    } = req.body;
 
     const user = await User.findByIdAndUpdate(
       req.user.id,
@@ -38,15 +38,27 @@ const updateProfile = async (req, res) => {
         company,
         role,
         skills,
+        bio,
+        linkedinUrl,
+        githubUrl,
       },
-      { new: true }
+      {
+        new: true,
+        runValidators: true,
+      }
     ).select("-password");
+
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: "User not found",
+      });
+    }
 
     res.status(200).json({
       success: true,
       user,
     });
-
   } catch (error) {
     res.status(500).json({
       success: false,
@@ -232,6 +244,71 @@ const searchUsers = async (req, res) => {
   }
 };
 
+
+const getSkillMatches = async (req, res) => {
+  try {
+    const currentUser = await User.findById(req.user.id).select("skills");
+
+    if (!currentUser) {
+      return res.status(404).json({
+        success: false,
+        message: "User not found",
+      });
+    }
+
+    if (!currentUser.skills || currentUser.skills.length === 0) {
+      return res.status(200).json({
+        success: true,
+        count: 0,
+        matches: [],
+        message: "Add skills to your profile to get matches",
+      });
+    }
+
+    const currentSkills = currentUser.skills.map((skill) =>
+      skill.toLowerCase().trim()
+    );
+
+    const users = await User.find({
+      _id: { $ne: req.user.id },
+      skills: { $exists: true, $ne: [] },
+    }).select(
+      "name username company role skills profilePicture bio"
+    );
+
+    const matches = users
+      .map((user) => {
+        const matchingSkills = user.skills.filter((skill) =>
+          currentSkills.includes(skill.toLowerCase().trim())
+        );
+
+        const matchScore = Math.round(
+          (matchingSkills.length / currentSkills.length) * 100
+        );
+
+        return {
+          user,
+          matchingSkills,
+          matchScore,
+        };
+      })
+      .filter((match) => match.matchScore > 0)
+      .sort((a, b) => b.matchScore - a.matchScore);
+
+    res.status(200).json({
+      success: true,
+      count: matches.length,
+      matches,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
+
 const uploadProfilePicture = async (req, res) => {
   try {
 
@@ -269,6 +346,7 @@ const uploadProfilePicture = async (req, res) => {
 
   }
 };
+
 module.exports = {
   getProfile,
   updateProfile,
@@ -277,5 +355,6 @@ module.exports = {
   uploadResume,
   getPublicProfile,
   searchUsers,
+  getSkillMatches,
   uploadProfilePicture,
 };
