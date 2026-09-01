@@ -17,6 +17,9 @@ coverage/
 # Uploaded files
 backend/uploads/
 
+# Discarded frontend backup
+frontend-discarded/
+
 # VS Code
 .vscode/
 

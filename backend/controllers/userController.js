@@ -194,9 +194,10 @@ const getPublicProfile = async (req, res) => {
 };
 
 //-------------------- Search Users -------------------------
+// ==================== SEARCH USERS ====================
+
 const searchUsers = async (req, res) => {
   try {
-
     const {
       name,
       company,
@@ -206,6 +207,9 @@ const searchUsers = async (req, res) => {
 
     const filter = {};
 
+
+    // ==================== SEARCH BY NAME ====================
+
     if (name) {
       filter.name = {
         $regex: name,
@@ -213,22 +217,40 @@ const searchUsers = async (req, res) => {
       };
     }
 
+
+    // ==================== SEARCH BY COMPANY ====================
+
     if (company) {
       filter.company = company;
     }
+
+
+    // ==================== SEARCH BY ROLE ====================
 
     if (role) {
       filter.role = role;
     }
 
+
+    // ==================== SEARCH BY SKILL ====================
+
     if (skill) {
       filter.skills = {
-        $in: [skill],
+        $elemMatch: {
+          $regex: skill,
+          $options: "i",
+        },
       };
     }
 
+
+    // ==================== FIND USERS ====================
+
     const users = await User.find(filter)
       .select("-password");
+
+
+    // ==================== RESPONSE ====================
 
     res.status(200).json({
       success: true,
@@ -243,7 +265,6 @@ const searchUsers = async (req, res) => {
     });
   }
 };
-
 
 const getSkillMatches = async (req, res) => {
   try {

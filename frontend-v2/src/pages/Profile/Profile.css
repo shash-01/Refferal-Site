@@ -1,0 +1,1038 @@
+/* =========================================================
+   PROFILE PAGE
+   ========================================================= */
+
+.profile-page {
+  width: 100%;
+  max-width: 940px;
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   PROFILE HEADER
+   ========================================================= */
+
+.profile-header-card {
+  background: #ffffff;
+
+  border: 1px solid #e4e7ee;
+
+  border-radius: 16px;
+
+  overflow: hidden;
+
+  margin-bottom: 18px;
+
+  box-shadow:
+    0 3px 12px rgba(25, 32, 56, 0.035);
+}
+
+.profile-cover {
+  height: 155px;
+
+  position: relative;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      135deg,
+      #6d4aff,
+      #8b6cff 45%,
+      #d7ccff
+    );
+}
+
+.cover-pattern {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at 20% 30%,
+      rgba(255, 255, 255, 0.18),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 80% 70%,
+      rgba(255, 255, 255, 0.14),
+      transparent 35%
+    );
+}
+
+
+/* =========================================================
+   PROFILE HEADER CONTENT
+   ========================================================= */
+
+.profile-header-content {
+  position: relative;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  padding: 0 28px 25px;
+}
+
+.profile-photo-wrapper {
+  margin-top: -62px;
+
+  margin-right: 22px;
+
+  position: relative;
+
+  z-index: 2;
+}
+
+.profile-photo {
+  width: 125px;
+  height: 125px;
+
+  object-fit: cover;
+
+  border-radius: 50%;
+
+  border: 5px solid #ffffff;
+
+  box-shadow:
+    0 5px 18px rgba(22, 30, 50, 0.15);
+}
+
+.profile-photo-placeholder {
+  width: 125px;
+  height: 125px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 50%;
+
+  border: 5px solid #ffffff;
+
+  background: #eeeaff;
+
+  color: #6546ee;
+
+  font-size: 34px;
+
+  font-weight: 800;
+
+  box-shadow:
+    0 5px 18px rgba(22, 30, 50, 0.15);
+}
+
+
+/* =========================================================
+   PROFILE MAIN INFO
+   ========================================================= */
+
+.profile-main-info {
+  padding-top: 18px;
+
+  flex: 1;
+}
+
+.profile-main-info h1 {
+  margin: 0 0 5px;
+
+  color: #172033;
+
+  font-size: 32px;
+
+  font-weight: 750;
+
+  letter-spacing: -0.7px;
+
+  line-height: 1.2;
+}
+
+.profile-main-info .profile-headline {
+  margin: 0 0 5px;
+
+  color: #344054;
+
+  font-size: 16px;
+
+  font-weight: 600;
+
+  line-height: 1.5;
+}
+
+.profile-main-info .profile-company {
+  margin: 0 0 3px;
+
+  color: #667085;
+
+  font-size: 16px;
+
+  line-height: 1.5;
+}
+
+.profile-main-info .profile-username {
+  margin: 0;
+
+  color: #848c9b;
+
+  font-size: 14px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   EDIT BUTTON
+   ========================================================= */
+
+.profile-header-content .edit-profile-button {
+  margin-top: 21px;
+
+  padding: 9px 17px;
+
+  border: 1px solid #6848f5;
+
+  border-radius: 8px;
+
+  background: #6848f5;
+
+  color: #ffffff;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    all 0.2s ease;
+}
+
+.edit-profile-button:hover {
+  background: #5738df;
+
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 6px 14px rgba(108, 76, 255, 0.2);
+}
+
+
+/* =========================================================
+   PROFILE SECTIONS
+   ========================================================= */
+
+.profile-section {
+  background: #ffffff;
+
+  border: 1px solid #e4e7ee;
+
+  border-radius: 15px;
+
+  padding: 25px 28px;
+
+  margin-bottom: 18px;
+
+  box-shadow:
+    0 3px 12px rgba(25, 32, 56, 0.025);
+}
+
+
+/* =========================================================
+   SECTION HEADING
+   ========================================================= */
+
+.upload-section .section-heading {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-bottom: 18px;
+}
+
+.upload-section .section-heading h2 {
+  margin: 0;
+
+  color: #172033;
+
+  font-size: 24px;
+
+  font-weight: 750;
+
+  letter-spacing: -0.3px;
+
+  line-height: 1.25;
+}
+
+.section-heading p {
+  margin: 5px 0 0;
+
+  color: #98a1b2;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   GENERAL PROFILE PARAGRAPHS
+   ========================================================= */
+
+.profile-page p {
+  font-size: 14px;
+
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   ABOUT
+   ========================================================= */
+
+.about-content p {
+  margin: 0;
+
+  color: #596579;
+
+  font-size: 14px;
+
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   INFORMATION GRID
+   ========================================================= */
+
+.info-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 18px 35px;
+}
+
+.info-item {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+.info-label {
+  color: #98a1b2;
+
+  font-size: 12px;
+
+  font-weight: 650;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.5px;
+
+  line-height: 1.4;
+}
+
+.info-value {
+  color: #344054;
+
+  font-size: 14px;
+
+  font-weight: 500;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   SKILLS
+   ========================================================= */
+
+.skills-container {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 9px;
+}
+
+.skill-pill {
+  display: inline-flex;
+
+  align-items: center;
+
+  padding: 7px 12px;
+
+  border-radius: 20px;
+
+  background: #f1efff;
+
+  border: 1px solid #e3ddff;
+
+  color: #6243e9;
+
+  font-size: 14px;
+
+  font-weight: 650;
+
+  line-height: 1.4;
+}
+
+
+/* =========================================================
+   EXPERIENCE TIMELINE
+   ========================================================= */
+
+.timeline {
+  position: relative;
+
+  margin-left: 8px;
+
+  padding-left: 27px;
+}
+
+.timeline::before {
+  content: "";
+
+  position: absolute;
+
+  left: 4px;
+
+  top: 6px;
+
+  bottom: 6px;
+
+  width: 1px;
+
+  background: #dfe2e9;
+}
+
+.timeline-item {
+  position: relative;
+
+  padding-bottom: 26px;
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.timeline-dot {
+  position: absolute;
+
+  left: -27px;
+
+  top: 4px;
+
+  width: 9px;
+
+  height: 9px;
+
+  border-radius: 50%;
+
+  background: #6848f5;
+
+  border: 3px solid #eeeaff;
+}
+
+.timeline-content h3 {
+  margin: 0 0 5px;
+
+  color: #263044;
+
+  font-size: 16px;
+
+  font-weight: 700;
+
+  line-height: 1.4;
+}
+
+.timeline-company {
+  margin: 0 0 4px;
+
+  color: #596579;
+
+  font-size: 14px;
+
+  font-weight: 500;
+
+  line-height: 1.5;
+}
+
+.timeline-duration {
+  margin: 0;
+
+  color: #98a1b2;
+
+  font-size: 14px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   EDUCATION
+   ========================================================= */
+
+.education-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 18px;
+}
+
+.education-item {
+  display: flex;
+
+  gap: 14px;
+
+  padding-bottom: 18px;
+
+  border-bottom: 1px solid #edf0f4;
+}
+
+.education-item:last-child {
+  border-bottom: none;
+
+  padding-bottom: 0;
+}
+
+.education-icon {
+  width: 42px;
+
+  height: 42px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 9px;
+
+  background: #f1efff;
+
+  font-size: 18px;
+}
+
+.education-item h3 {
+  margin: 0 0 4px;
+
+  color: #263044;
+
+  font-size: 16px;
+
+  font-weight: 700;
+
+  line-height: 1.4;
+}
+
+.education-item p {
+  margin: 0 0 3px;
+
+  color: #596579;
+
+  font-size: 14px;
+
+  line-height: 1.5;
+}
+
+.education-item span {
+  color: #98a1b2;
+
+  font-size: 14px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   ADD FORMS
+   ========================================================= */
+
+.add-section {
+  margin-top: 25px;
+
+  padding-top: 22px;
+
+  border-top: 1px solid #edf0f4;
+}
+
+.add-section h3 {
+  margin: 0 0 13px;
+
+  color: #344054;
+
+  font-size: 16px;
+
+  font-weight: 700;
+
+  line-height: 1.4;
+}
+
+
+/* =========================================================
+   LINKS
+   ========================================================= */
+
+.links-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+.profile-link {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding: 12px 14px;
+
+  border: 1px solid #e5e8ee;
+
+  border-radius: 9px;
+
+  color: #6546ee;
+
+  text-decoration: none;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  line-height: 1.5;
+
+  transition:
+    all 0.2s ease;
+}
+
+.profile-link span {
+  font-size: 14px;
+
+  line-height: 1.5;
+}
+
+.profile-link:hover {
+  background: #f7f5ff;
+
+  border-color: #d9d1ff;
+}
+
+
+/* =========================================================
+   RESUME
+   ========================================================= */
+
+.resume-card {
+  display: flex;
+
+  align-items: center;
+
+  gap: 13px;
+
+  padding: 14px;
+
+  border: 1px solid #e5e8ee;
+
+  border-radius: 10px;
+
+  background: #fafbfc;
+}
+
+.resume-icon {
+  width: 42px;
+
+  height: 42px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 9px;
+
+  background: #f1efff;
+
+  font-size: 19px;
+}
+
+.resume-info {
+  display: flex;
+
+  flex-direction: column;
+
+  flex: 1;
+
+  gap: 3px;
+}
+
+.resume-info strong {
+  color: #344054;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  line-height: 1.5;
+}
+
+.resume-info span {
+  color: #98a1b2;
+
+  font-size: 14px;
+
+  line-height: 1.5;
+}
+
+.resume-button {
+  padding: 8px 12px;
+
+  border-radius: 7px;
+
+  background: #6848f5;
+
+  color: #ffffff !important;
+
+  font-size: 14px !important;
+
+  font-weight: 700 !important;
+
+  line-height: 1.4;
+
+  text-decoration: none !important;
+}
+
+
+/* =========================================================
+   EMPTY STATES
+   ========================================================= */
+
+.empty-text {
+  margin: 0;
+
+  color: #98a1b2 !important;
+
+  font-size: 14px !important;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   UPLOAD SECTION
+   ========================================================= */
+
+.upload-section {
+  background: #fbfbfe;
+}
+
+
+/* =========================================================
+   PROFILE PICTURE UPLOAD
+   ========================================================= */
+
+.profile-picture-upload {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  gap: 10px;
+}
+
+.hidden-file-input {
+  display: none;
+}
+
+.upload-photo-button {
+  padding: 10px 17px;
+
+  border: 1px solid #6848f5;
+
+  border-radius: 8px;
+
+  background: #6848f5;
+
+  color: #ffffff;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  line-height: 1.4;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.upload-photo-button:hover {
+  background: #5738df;
+
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 5px 14px rgba(104, 72, 245, 0.22);
+}
+
+.upload-photo-button:disabled {
+  opacity: 0.6;
+
+  cursor: not-allowed;
+
+  transform: none;
+}
+
+.upload-success {
+  margin: 0;
+
+  color: #15803d;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  line-height: 1.5;
+}
+
+.upload-error {
+  margin: 0;
+
+  color: #dc2626;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   LOADING
+   ========================================================= */
+
+.profile-loading {
+  min-height: 300px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  color: #7d8798;
+
+  font-size: 14px;
+}
+
+.loading-spinner {
+  width: 25px;
+
+  height: 25px;
+
+  margin-bottom: 10px;
+
+  border: 3px solid #eeeaff;
+
+  border-top-color: #6848f5;
+
+  border-radius: 50%;
+
+  animation:
+    profile-spin 0.8s linear infinite;
+}
+
+@keyframes profile-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* =========================================================
+   ERROR
+   ========================================================= */
+
+.profile-error,
+.profile-empty {
+  padding: 45px;
+
+  text-align: center;
+
+  background: #ffffff;
+
+  border: 1px solid #e4e7ee;
+
+  border-radius: 14px;
+}
+
+.profile-error h3,
+.profile-empty h3 {
+  margin: 0 0 8px;
+
+  color: #263044;
+
+  font-size: 20px;
+
+  line-height: 1.4;
+}
+
+.profile-error p,
+.profile-empty p {
+  margin: 0 0 18px;
+
+  color: #8992a3;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  .profile-page {
+    max-width: 100%;
+  }
+
+  .profile-cover {
+    height: 115px;
+  }
+
+  .profile-header-content {
+    padding: 0 18px 20px;
+
+    flex-wrap: wrap;
+  }
+
+  .profile-photo-wrapper {
+    margin-top: -48px;
+
+    margin-right: 15px;
+  }
+
+  .profile-photo,
+  .profile-photo-placeholder {
+    width: 96px;
+
+    height: 96px;
+  }
+
+  .profile-main-info {
+    padding-top: 12px;
+  }
+
+  .profile-main-info h1 {
+    font-size: 21px;
+  }
+
+  .profile-main-info .profile-headline {
+    font-size: 15px;
+  }
+
+  .profile-main-info .profile-company {
+    font-size: 15px;
+  }
+
+  .profile-main-info .profile-username {
+    font-size: 14px;
+  }
+
+  .profile-header-content .edit-profile-button {
+    margin-top: 15px;
+
+    width: 100%;
+  }
+
+  .profile-section {
+    padding: 20px;
+
+    border-radius: 12px;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .info-label {
+    font-size: 12px;
+  }
+
+  .info-value {
+    font-size: 14px;
+  }
+
+  .skill-pill {
+    font-size: 14px;
+  }
+
+  .timeline-content h3 {
+    font-size: 15px;
+  }
+
+  .timeline-company,
+  .timeline-duration {
+    font-size: 14px;
+  }
+
+  .education-item h3 {
+    font-size: 15px;
+  }
+
+  .education-item p,
+  .education-item span {
+    font-size: 14px;
+  }
+
+  .profile-link,
+  .profile-link span {
+    font-size: 14px;
+  }
+
+  .resume-card {
+    align-items: flex-start;
+
+    flex-wrap: wrap;
+  }
+
+  .resume-info strong,
+  .resume-info span {
+    font-size: 14px;
+  }
+
+  .resume-button {
+    width: 100%;
+
+    text-align: center;
+
+    font-size: 14px !important;
+  }
+
+}

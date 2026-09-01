@@ -1,0 +1,833 @@
+/* =========================================================
+   REFERRALHUB - APPLICATION STYLES
+   ========================================================= */
+
+
+/* =========================================================
+   APP
+   ========================================================= */
+
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  background: #f6f7fb;
+}
+
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+.sidebar {
+  width: 250px;
+  height: 100vh;
+
+  position: fixed;
+  left: 0;
+  top: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  background: #ffffff;
+
+  border-right: 1px solid #e8eaf0;
+
+  padding: 24px 14px;
+
+  z-index: 100;
+}
+
+.sidebar-logo {
+  display: flex;
+  align-items: center;
+
+  gap: 11px;
+
+  padding: 4px 10px 28px;
+}
+
+.logo-mark {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 11px;
+
+  background: linear-gradient(
+    135deg,
+    #7657ff,
+    #5c3df0
+  );
+
+  color: white;
+
+  font-size: 18px;
+  font-weight: 800;
+
+  box-shadow:
+    0 6px 15px rgba(108, 76, 255, 0.25);
+}
+
+.sidebar-logo h2 {
+  margin: 0;
+
+  font-size: 17px;
+
+  font-weight: 750;
+
+  letter-spacing: -0.4px;
+
+  color: #172033;
+}
+
+.sidebar-logo span {
+  display: block;
+
+  margin-top: 2px;
+
+  color: #9aa2b1;
+
+  font-size: 9px;
+
+  font-weight: 500;
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+.sidebar-nav {
+  flex: 1;
+}
+
+.nav-section-title {
+  margin: 0 12px 10px;
+
+  color: #a0a7b5;
+
+  font-size: 9px;
+
+  font-weight: 750;
+
+  letter-spacing: 1px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  width: 100%;
+
+  padding: 11px 13px;
+
+  margin-bottom: 4px;
+
+  border-radius: 9px;
+
+  text-decoration: none;
+
+  color: #687386;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.nav-item:hover {
+  background: #f6f4ff;
+
+  color: #6848f5;
+}
+
+.nav-item.active {
+  background: #eeeaff;
+
+  color: #6546ee;
+
+  font-weight: 700;
+}
+
+.nav-icon {
+  width: 22px;
+
+  display: flex;
+  justify-content: center;
+
+  color: inherit;
+
+  font-size: 15px;
+}
+
+
+/* =========================================================
+   SIDEBAR HELP
+   ========================================================= */
+
+.sidebar-help {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 12px;
+
+  border-radius: 11px;
+
+  background: #f7f5ff;
+
+  border: 1px solid #eeeaff;
+}
+
+.help-icon {
+  width: 28px;
+  height: 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #ebe7ff;
+
+  color: #6949f5;
+
+  font-size: 12px;
+
+  font-weight: 700;
+}
+
+.sidebar-help strong {
+  display: block;
+
+  color: #30394b;
+
+  font-size: 10px;
+}
+
+.sidebar-help span:last-child {
+  display: block;
+
+  margin-top: 2px;
+
+  color: #9aa2b1;
+
+  font-size: 8px;
+}
+
+
+/* =========================================================
+   MAIN AREA
+   ========================================================= */
+
+.main-area {
+  width: calc(100% - 250px);
+
+  min-height: 100vh;
+
+  margin-left: 250px;
+}
+
+
+/* =========================================================
+   TOPBAR
+   ========================================================= */
+
+.topbar {
+  height: 68px;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  padding: 0 32px;
+
+  background: #ffffff;
+
+  border-bottom: 1px solid #e8eaf0;
+
+  position: sticky;
+  top: 0;
+
+  z-index: 90;
+}
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+
+  gap: 18px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+}
+
+.user-avatar {
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #eeeaff;
+
+  color: #6848f5;
+
+  font-size: 12px;
+
+  font-weight: 750;
+}
+
+.user-details strong {
+  display: block;
+
+  color: #20283a;
+
+  font-size: 11px;
+
+  font-weight: 700;
+}
+
+.user-details span {
+  display: block;
+
+  margin-top: 1px;
+
+  color: #9aa2b1;
+
+  font-size: 9px;
+}
+
+.logout-button {
+  padding: 7px 13px;
+
+  border: 1px solid #e2e4eb;
+
+  border-radius: 7px;
+
+  background: #ffffff;
+
+  color: #697386;
+
+  font-size: 10px;
+
+  font-weight: 650;
+
+  transition: all 0.2s ease;
+}
+
+.logout-button:hover {
+  border-color: #cfc7ff;
+
+  background: #f5f2ff;
+
+  color: #6546ee;
+}
+
+
+/* =========================================================
+   PAGE CONTENT
+   ========================================================= */
+
+.page-content {
+  width: 100%;
+
+  max-width: 1120px;
+
+  margin: 0 auto;
+
+  padding: 32px 42px 60px;
+}
+
+
+/* =========================================================
+   DASHBOARD PAGE
+   ========================================================= */
+
+.dashboard-page {
+  width: 100%;
+}
+
+
+/* =========================================================
+   CREATE POST SECTION
+   ========================================================= */
+
+.page-content h1,
+.page-content h2,
+.page-content h3 {
+  color: #172033;
+}
+
+.page-content h1 {
+  font-size: 28px;
+
+  font-weight: 750;
+
+  letter-spacing: -0.8px;
+}
+
+.page-content h2 {
+  font-size: 23px;
+
+  font-weight: 750;
+
+  letter-spacing: -0.5px;
+}
+
+.page-content h3 {
+  font-size: 16px;
+
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   FORM CARD
+   ========================================================= */
+
+.page-content form {
+  width: 100%;
+
+  padding: 22px 24px;
+
+  margin-bottom: 28px;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e7ee;
+
+  border-radius: 14px;
+
+  box-shadow:
+    0 4px 14px rgba(24, 32, 55, 0.035);
+}
+
+.page-content form label {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #4e586b;
+
+  font-size: 11px;
+
+  font-weight: 650;
+}
+
+.page-content form input,
+.page-content form textarea,
+.page-content form select {
+  width: 100%;
+
+  margin-bottom: 13px;
+
+  padding: 10px 12px;
+
+  border: 1px solid #dfe2e9;
+
+  border-radius: 8px;
+
+  background: #ffffff;
+
+  color: #172033;
+
+  font-size: 12px;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.page-content form input:focus,
+.page-content form textarea:focus,
+.page-content form select:focus {
+  border-color: #7657ff;
+
+  box-shadow:
+    0 0 0 3px rgba(108, 76, 255, 0.08);
+}
+
+.page-content form textarea {
+  min-height: 85px;
+
+  resize: vertical;
+}
+
+
+/* =========================================================
+   ALL BUTTONS
+   ========================================================= */
+
+.page-content button {
+  padding: 9px 15px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: #6848f5;
+
+  color: #ffffff;
+
+  font-size: 11px;
+
+  font-weight: 650;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.page-content button:hover {
+  background: #5738df;
+
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 5px 12px rgba(108, 76, 255, 0.18);
+}
+
+
+/* =========================================================
+   REFERRAL FEED
+   ========================================================= */
+
+.page-content hr {
+  border: none;
+
+  border-top: 1px solid #e8eaf0;
+
+  margin: 22px 0;
+}
+
+.page-content h2 + div {
+  position: relative;
+}
+
+
+/* =========================================================
+   REFERRAL POST
+   ========================================================= */
+
+.page-content main {
+  width: 100%;
+}
+
+
+/*
+   These styles make the existing referral post
+   content look like individual cards.
+*/
+
+.page-content h2 {
+  margin-top: 8px;
+
+  margin-bottom: 20px;
+}
+
+.page-content h2 ~ h3 {
+  margin-top: 22px;
+}
+
+
+/* =========================================================
+   TEXT
+   ========================================================= */
+
+.page-content p {
+  color: #697386;
+
+  font-size: 12px;
+
+  line-height: 1.65;
+}
+
+.page-content strong {
+  color: #263044;
+
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   LINKS
+   ========================================================= */
+
+.page-content a {
+  color: #6546ee;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  text-decoration: none;
+}
+
+.page-content a:hover {
+  text-decoration: underline;
+}
+
+
+/* =========================================================
+   GENERIC CARD
+   ========================================================= */
+
+.card {
+  background: #ffffff;
+
+  border: 1px solid #e6e8ee;
+
+  border-radius: 13px;
+
+  box-shadow:
+    0 3px 12px rgba(25, 32, 56, 0.035);
+}
+
+
+/* =========================================================
+   SEARCH / MATCHES / NOTIFICATIONS
+   ========================================================= */
+
+.page-content > div {
+  max-width: 900px;
+}
+
+
+/* =========================================================
+   EMPTY STATE
+   ========================================================= */
+
+.empty-state {
+  padding: 45px 25px;
+
+  text-align: center;
+
+  background: #ffffff;
+
+  border: 1px solid #e7e9ef;
+
+  border-radius: 13px;
+}
+
+.empty-state h3 {
+  margin-bottom: 6px;
+
+  color: #253047;
+}
+
+.empty-state p {
+  color: #929aaa;
+}
+
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+.status-success {
+  color: #149a65;
+
+  background: #eaf8f2;
+}
+
+.status-danger {
+  color: #d94f4f;
+
+  background: #fff0f0;
+}
+
+.status-warning {
+  color: #ce8c1b;
+
+  background: #fff7e5;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+.mobile-logo {
+  display: none;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 950px) {
+
+  .sidebar {
+    width: 210px;
+  }
+
+  .main-area {
+    width: calc(100% - 210px);
+
+    margin-left: 210px;
+  }
+
+  .page-content {
+    padding: 28px 25px 50px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  .app-shell {
+    display: block;
+  }
+
+  .sidebar {
+    width: 100%;
+
+    height: auto;
+
+    position: relative;
+
+    padding: 13px;
+
+    border-right: none;
+
+    border-bottom: 1px solid #e8eaf0;
+  }
+
+  .sidebar-logo {
+    padding: 0 5px 13px;
+  }
+
+  .sidebar-nav {
+    display: flex;
+
+    overflow-x: auto;
+
+    gap: 4px;
+  }
+
+  .nav-section-title {
+    display: none;
+  }
+
+  .nav-item {
+    width: auto;
+
+    flex-shrink: 0;
+
+    margin: 0;
+
+    padding: 8px 11px;
+
+    font-size: 10px;
+  }
+
+  .nav-icon {
+    display: none;
+  }
+
+  .sidebar-bottom {
+    display: none;
+  }
+
+  .main-area {
+    width: 100%;
+
+    margin-left: 0;
+  }
+
+  .topbar {
+    height: 58px;
+
+    padding: 0 15px;
+  }
+
+  .mobile-logo {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+  }
+
+  .mobile-logo .logo-mark {
+    width: 31px;
+    height: 31px;
+  }
+
+  .mobile-logo strong {
+    font-size: 14px;
+  }
+
+  .topbar {
+    justify-content: space-between;
+  }
+
+  .user-details {
+    display: none;
+  }
+
+  .page-content {
+    padding: 22px 15px 45px;
+  }
+
+  .page-content h1 {
+    font-size: 24px;
+  }
+
+  .page-content h2 {
+    font-size: 21px;
+  }
+
+  .page-content form {
+    padding: 18px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 420px) {
+
+  .nav-item {
+    padding: 7px 9px;
+  }
+
+  .logout-button {
+    padding: 6px 10px;
+  }
+
+}
